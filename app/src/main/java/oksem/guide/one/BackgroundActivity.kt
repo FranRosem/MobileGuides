@@ -9,8 +9,18 @@ import android.view.MenuItem
 import android.widget.Button
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.material.snackbar.Snackbar
+import android.view.View
+
+class MyUndoListener: View.OnClickListener {
+    override fun onClick(p0: View) {
+        Log.d("TEST", "UNDO PRESSED")
+    }
+}
 
 class BackgroundActivity : AppCompatActivity() {
+    private val btnSnackbar : Button
+        get() = findViewById(R.id.btnSnackbar)
     private val btnWhite: Button
         get() = findViewById(R.id.btnWhite)
     private val btnRed: Button
@@ -32,6 +42,13 @@ class BackgroundActivity : AppCompatActivity() {
         btnWhite.setOnClickListener {
             layoutPrincipal.setBackgroundColor(Color.WHITE)
         }
+
+        btnSnackbar.setOnClickListener {
+            val mySnackbar = Snackbar.make(findViewById(R.id.layoutPrincipal), R.string.app_name, Snackbar.LENGTH_LONG)
+            mySnackbar.setAction(R.string.undo_string, MyUndoListener())
+            mySnackbar.show()
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

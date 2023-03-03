@@ -2,6 +2,8 @@
     <string name="app_name">guias</string>
     <string name="btn_red">RED</string>
     <string name="btn_white">WHITE</string>
+    <string name="btn_snackbar">Show Snackbar</string>
+    <string name="undo_string">Undo</string>
     <string name="action_search">Buscar</string>
     <string name="action_setting">Configuración</string>
 </resources>
